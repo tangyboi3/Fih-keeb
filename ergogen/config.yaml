@@ -1,0 +1,228 @@
+units:
+  $default_width: 0
+  $default_height: 0
+  kx: cx
+  ky: cy
+  px: kx+0
+  py: ky+0
+  mcux: 18
+  mcuy: 33
+
+points:
+  zones:
+    matrix:
+      anchor.shift: [100,-150]
+      key:
+        padding: ky
+        spread: kx
+      columns:
+        pinky:
+          key:
+            splay: 10
+          rows.top.skip: true
+        ring:
+          key:
+            splay: -6
+            origin: [-kx/2,-ky/2]
+            stagger: 3ky/4
+        middle:
+          key:
+            splay: -4
+            origin: [-kx/2,-ky/2]
+            stagger: ky/2
+        index:
+          key.stagger: -ky/2
+        inner:
+          key.stagger: -ky/2
+          rows.bottom.skip: true
+      rows:
+        bottom:
+        home:
+        top:
+    thumbs:
+      key:
+        padding: ky
+        spread: kx
+      anchor:
+        ref: matrix_index_bottom
+        shift: [kx/2,-ky]
+      columns:
+        tucky:
+        reachy:
+    mcu:
+      anchor: 
+        - ref: matrix_inner_home
+          shift: 2+mcux
+          affect: x
+        - ref: matrix_index_top
+          shift: (py-mcuy)/2
+          affect: y
+    pwr:
+      anchor:
+        ref: mcu
+        affect: xy
+        shift: [mcux/2-1,-10-mcuy/2]
+    jst:
+      anchor:
+        ref: pwr
+        affect: xy
+        shift: [-6,-6]
+    rst:
+      anchor:
+        ref: matrix_inner_top
+        affect: xy
+        shift: [0,14]
+
+outlines:
+  board:
+    - what: rectangle
+      where:
+        - /^matrix_.*/
+        - /^thumbs_.*/
+      size: [px,py]
+    - what: polygon # mcu area
+      points: 
+        - ref: matrix_index_top
+          shift: [px/2,py/2]
+        - ref: matrix_index_top
+          shift: [4+mcux+3kx/2,py/2]
+        - ref: matrix_index_bottom
+          shift: [4+mcux+3kx/2,-ky+py/2]
+        - ref: thumbs_reachy
+          shift: [px/2,py/2]
+        - ref: thumbs_reachy
+          shift: [px/2,-py/2]
+        - ref: thumbs_tucky
+          shift: [-px/2,-py/2]
+    - what: polygon # fill concavities
+      fillet: 1
+      points:
+        - ref: matrix_ring_bottom
+          shift: [-px/2,-py/2]
+        - ref: matrix_pinky_home
+          shift: [0,py/2]
+        - ref: matrix_pinky_home
+          shift: [px,py/2]
+        - ref: matrix_ring_top
+          shift: [0,py/2]
+        - ref: matrix_ring_top
+          shift: [px,py/2]
+        - ref: matrix_index_bottom
+        - ref: matrix_index_bottom
+          shift: [-px/2,-py/2]
+        - ref: matrix_index_bottom
+          shift: [-kx-px/2,-py/2]
+  _caps:
+    - what: rectangle
+      where:
+        - /^matrix_.*/
+        - /^thumbs_.*/
+      size: [17,16]
+  _plate:
+    - what: rectangle
+      where:
+        - /^matrix_.*/
+        - /^thumbs_.*/
+      size: 14
+  _mcu:
+    - what: rectangle
+      where: mcu
+      size: [mcux,mcuy]
+  _jst:
+    - what: rectangle
+      where: jst
+      adjust:
+        shift: [0,6.75/2-.5]
+      size: [6,6.75]
+  _pwr:
+    - what: rectangle
+      where: pwr
+      size: [3.5,8.5]
+  _rst:
+    - what: rectangle
+      where: rst
+      adjust:
+        orient: 90
+      size: [3.5,6]
+  plate:
+    - board
+    - ^_plate
+    - ^_mcu
+    - ^_jst
+    - ^_pwr
+    - ^_rst
+  caps-demo:
+    - board
+    - ^_caps
+    - ^_mcu
+    - ^_jst
+    - ^_pwr
+    - ^_rst
+
+pcbs:
+  test:
+    template: kicad8
+    outlines:
+      main:
+        outline: caps-demo
+    footprints:
+      rst:
+        what: TS1236
+        where: rst
+        adjust: 
+          orient: -90
+      pwr:
+        what: SS12D00
+        where: pwr
+      jst:
+        what: JSTPH2
+        where: jst
+      switches:
+        what: ceoloide/switch_choc_v1_v2
+        where:
+          - /^matrix_.*/
+          - /^thumbs_.*/
+        params:
+          choc_v2_support: false
+          reversible: true
+          solder: true
+          hotswap: false
+          from: "{{name}}"
+          to: "GND"
+      mcu:
+        what: ceoloide/mcu_supermini_nrf52840
+        where:
+          ref: mcu
+        params:
+          reversible: true
+          only_required_jumpers: true
+          P3: matrix_ring_top
+          P3_label: P3
+          P4: matrix_ring_home
+          P4_label: P4
+          P5: matrix_ring_bottom
+          P5_label: P5
+          P6: matrix_pinky_home
+          P6_label: P6
+          P7: matrix_pinky_bottom
+          P7_label: P7
+          P8: thumbs_tucky
+          P8_label: P8
+          P9: thumbs_reachy
+          P9_label: P9
+          P10: matrix_inner_top
+          P10_label: P10
+          P16: matrix_inner_home
+          P16_label: P16
+          P14: matrix_index_top
+          P14_label: P14
+          P15: matrix_index_home
+          P15_label: P15
+          P18: matrix_index_bottom
+          P18_label: P18
+          P19: matrix_middle_top
+          P19_label: P19
+          P20: matrix_middle_home
+          P20_label: P20
+          P21: matrix_middle_bottom
+          P21_label: P21

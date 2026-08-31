@@ -31,9 +31,8 @@ fp.push(`(duplicate_pad_numbers_are_jumpers no)`);
 fp.push(`(embedded_fonts no)`);
 
 // Pads
-// Pads
-fp.push(`(pad "1" thru_hole circle (at -1 ${flipN(flip, 0)} ${flipR(flip, p.r + 0)}) (size 1 1) (drill 0.5) (layers "*.Cu" "*.Mask") (remove_unused_layers no)  ${p.P1})`);
-fp.push(`(pad "2" thru_hole circle (at 1 ${flipN(flip, 0)} ${flipR(flip, p.r + 0)}) (size 1 1) (drill 0.5) (layers "*.Cu" "*.Mask") (remove_unused_layers no)  ${p.P2})`);
+fp.push(`(pad "1" thru_hole circle (at -1 ${flipN(flip, 0)} ${flipR(flip, p.r + 0)}) (size 1.25 1.25) (drill 0.75) (layers "*.Cu" "*.Mask") (remove_unused_layers no)  ${p.P1})`);
+fp.push(`(pad "2" thru_hole circle (at 1 ${flipN(flip, 0)} ${flipR(flip, p.r + 0)}) (size 1.25 1.25) (drill 0.75) (layers "*.Cu" "*.Mask") (remove_unused_layers no)  ${p.P2})`);
 fp.push(`(pad "21" smd custom (at -1 ${flipN(flip, -2)} ${flipR(flip, p.r + 0)}) (size 0.1 0.1) (layers "${(flip ? "B" : "F")}.Cu" "${(flip ? "B" : "F")}.Mask" "${(flip ? "B" : "F")}.Paste") (clearance 0.1) (zone_connect 0) (options (clearance outline) (anchor rect)) (primitives (gr_poly (pts (xy 0.6 ${flipN(flip, 0.4)}) (xy -0.6 ${flipN(flip, 0.4)}) (xy -0.6 ${flipN(flip, 0.2)}) (xy 0 ${flipN(flip, -0.4)}) (xy 0.6 ${flipN(flip, 0.2)})) (width 0) (fill yes)))  ${p.P21})`);
 fp.push(`(pad "22" smd custom (at 1 ${flipN(flip, -2)} ${flipR(flip, p.r + 0)}) (size 0.1 0.1) (layers "${(flip ? "B" : "F")}.Cu" "${(flip ? "B" : "F")}.Mask" "${(flip ? "B" : "F")}.Paste") (clearance 0.1) (zone_connect 0) (options (clearance outline) (anchor rect)) (primitives (gr_poly (pts (xy 0.6 ${flipN(flip, 0.4)}) (xy -0.6 ${flipN(flip, 0.4)}) (xy -0.6 ${flipN(flip, 0.2)}) (xy 0 ${flipN(flip, -0.4)}) (xy 0.6 ${flipN(flip, 0.2)})) (width 0) (fill yes)))  ${p.P22})`);
 fp.push(`(pad "31" smd custom (at -1 ${flipN(flip, -2)} ${flipR(flip, p.r + 0)}) (size 0.1 0.1) (layers "${(flip ? "F" : "B")}.Cu" "${(flip ? "F" : "B")}.Mask" "${(flip ? "F" : "B")}.Paste") (clearance 0.1) (zone_connect 0) (options (clearance outline) (anchor rect)) (primitives (gr_poly (pts (xy 0.6 ${flipN(flip, 0.4)}) (xy -0.6 ${flipN(flip, 0.4)}) (xy -0.6 ${flipN(flip, 0.2)}) (xy 0 ${flipN(flip, -0.4)}) (xy 0.6 ${flipN(flip, 0.2)})) (width 0) (fill yes)))  ${p.P31})`);

@@ -25,9 +25,9 @@ fp.push(`(duplicate_pad_numbers_are_jumpers no)`);
 fp.push(`(embedded_fonts no)`);
 
 // Pads
-fp.push(`(pad "" thru_hole circle (at 0 ${flipN(flip, 2.5)} ${flipR(flip, p.r + 0)}) (size 1 1) (drill 0.5) (layers "*.Cu" "*.Mask") (remove_unused_layers no) )`);
-fp.push(`(pad "RAW" thru_hole circle (at 0 ${flipN(flip, -2.5)} ${flipR(flip, p.r + 0)}) (size 1 1) (drill 0.5) (layers "*.Cu" "*.Mask") (remove_unused_layers no)  ${p.RAW})`);
-fp.push(`(pad "BAT_P" thru_hole circle (at 0 ${flipN(flip, 0)} ${flipR(flip, p.r + 0)}) (size 1 1) (drill 0.5) (layers "*.Cu" "*.Mask") (remove_unused_layers no)  ${p.BAT_P})`);
+fp.push(`(pad "" thru_hole circle (at 0 ${flipN(flip, 2.5)} ${flipR(flip, p.r + 0)}) (size 1.25 1.25) (drill 0.75) (layers "*.Cu" "*.Mask") (remove_unused_layers no) )`);
+fp.push(`(pad "RAW" thru_hole circle (at 0 ${flipN(flip, -2.5)} ${flipR(flip, p.r + 0)}) (size 1.25 1.25) (drill 0.75) (layers "*.Cu" "*.Mask") (remove_unused_layers no)  ${p.RAW})`);
+fp.push(`(pad "BAT_P" thru_hole circle (at 0 ${flipN(flip, 0)} ${flipR(flip, p.r + 0)}) (size 1.25 1.25) (drill 0.75) (layers "*.Cu" "*.Mask") (remove_unused_layers no)  ${p.BAT_P})`);
 
 // Drawings on B.SilkS
 fp.push(`(fp_line (start -2 ${flipN(flip, -4.25)}) (end -1 ${flipN(flip, -4.25)}) (stroke (width 0.1) (type default)) (layer "${(flip ? "F.SilkS" : "B.SilkS")}") )`);

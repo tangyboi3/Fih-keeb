@@ -15,7 +15,7 @@ Fih keeb. 23332+2, very staggered, made using ergogen.
 | SS12D00 power switches | 2 | [ali](https://www.aliexpress.us/item/3256810241242670.html) |
 | TS-1136 reset buttons | 2 | make sure you get the DIP version. [ali](https://www.aliexpress.us/item/3256801442870232.html) |
 | rubber feet | 8 | [ali](https://www.aliexpress.us/item/3256805129083590.html) |
-> note: solder the jumpers on the BACK of the pcb relative to your parts. the n!n silkscreen has a reminder.
+> note: solder the n!n component side down. solder the jumpers on the BACK of the pcb relative to the keys. the n!n silkscreen has a reminder.
 
 ## firmware
 [here](https://github.com/tangyboi3/zmk-keyboard-fih/)

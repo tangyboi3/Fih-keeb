@@ -1,2 +1,4 @@
 # KiCad history
 .history/
+# gerbers
+*.zip

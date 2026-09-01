@@ -61,12 +61,12 @@ points:
       anchor:
         ref: mcu
         affect: xy
-        shift: [mcux/2-1,-10-mcuy/2]
+        shift: [3,-15-mcuy/2]
     jst:
       anchor:
         ref: pwr
         affect: xy
-        shift: [-6,-6]
+        shift: [6,7]
     rst:
       anchor:
         ref: matrix_inner_top
@@ -132,12 +132,13 @@ outlines:
     - what: rectangle
       where: jst
       adjust:
+        orient: 90
         shift: [0,6.75/2-.5]
       size: [6,6.75]
   _pwr:
     - what: rectangle
       where: pwr
-      size: [3.5,8.5]
+      size: [8.5,4]
   _rst:
     - what: rectangle
       where: rst
@@ -164,7 +165,7 @@ pcbs:
     template: kicad8
     outlines:
       main:
-        outline: caps-demo
+        outline: board
     footprints:
       rst:
         what: TS1236
@@ -177,13 +178,15 @@ pcbs:
       jst:
         what: JSTPH2
         where: jst
+        adjust:
+          orient: 90
       switches:
         what: ceoloide/switch_choc_v1_v2
         where:
           - /^matrix_.*/
           - /^thumbs_.*/
         params:
-          choc_v2_support: false
+          include_stabilizer_pad: false
           reversible: true
           solder: true
           hotswap: false
@@ -195,34 +198,35 @@ pcbs:
           ref: mcu
         params:
           reversible: true
+          reverse_mount: true
           only_required_jumpers: true
-          P3: matrix_ring_top
-          P3_label: P3
-          P4: matrix_ring_home
-          P4_label: P4
-          P5: matrix_ring_bottom
-          P5_label: P5
-          P6: matrix_pinky_home
-          P6_label: P6
-          P7: matrix_pinky_bottom
-          P7_label: P7
-          P8: thumbs_tucky
-          P8_label: P8
-          P9: thumbs_reachy
-          P9_label: P9
-          P10: matrix_inner_top
-          P10_label: P10
-          P16: matrix_inner_home
-          P16_label: P16
-          P14: matrix_index_top
-          P14_label: P14
-          P15: matrix_index_home
-          P15_label: P15
-          P18: matrix_index_bottom
-          P18_label: P18
-          P19: matrix_middle_top
-          P19_label: P19
-          P20: matrix_middle_home
+          P20: matrix_ring_top
           P20_label: P20
-          P21: matrix_middle_bottom
-          P21_label: P21
+          P19: matrix_ring_home
+          P19_label: P19
+          P18: matrix_ring_bottom
+          P18_label: P18
+          P15: matrix_pinky_home
+          P15_label: P15
+          P14: matrix_pinky_bottom
+          P14_label: P14
+          P16: thumbs_tucky
+          P16_label: P16
+          P10: thumbs_reachy
+          P10_label: P10
+          P9: matrix_inner_top
+          P9_label: P9
+          P8: matrix_inner_home
+          P8_label: P8
+          P7: matrix_index_top
+          P7_label: P7
+          P6: matrix_index_home
+          P6_label: P6
+          P5: matrix_index_bottom
+          P5_label: P5
+          P4: matrix_middle_top
+          P4_label: P4
+          P3: matrix_middle_home
+          P3_label: P3
+          P2: matrix_middle_bottom
+          P2_label: P2

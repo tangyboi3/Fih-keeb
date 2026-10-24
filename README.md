@@ -1,4 +1,4 @@
-![pcb](./img/fih-pcb.png)
+![pic](./img/fih-pic.jpg)
 
 # Fih keeb
 Fih keeb. 23332+2, very staggered, made using ergogen.
@@ -15,7 +15,7 @@ Fih keeb. 23332+2, very staggered, made using ergogen.
 | SS12D00 power switches | 2 | [ali](https://www.aliexpress.us/item/3256810241242670.html) |
 | TS-1136 reset buttons | 2 | make sure you get the DIP version. [ali](https://www.aliexpress.us/item/3256801442870232.html) |
 | rubber feet | 8 | [ali](https://www.aliexpress.us/item/3256805129083590.html) |
-> note: solder the n!n component side down. solder the jumpers on the BACK of the pcb relative to the keys. the n!n silkscreen has a reminder.
+> note: solder the n!n component side down. solder the jumpers on the back of the pcb relative to the keys. the n!n footprint silkscreen has a reminder.
 
 ## firmware
 [here](https://github.com/tangyboi3/zmk-keyboard-fih/)
@@ -24,6 +24,6 @@ Fih keeb. 23332+2, very staggered, made using ergogen.
 thanks to mrzealot for [ergogen](https://ergogen.ceoloide.com/), ceoloide for their fork and [footprints](https://github.com/ceoloide/ergogen-footprints/), genteure for the neat [zmk shield wizard](https://shield-wizard.genteure.com/), [zmk](https://v0-3-branch.zmk.dev/) itself for the firmware, the [hummingbird](https://github.com/PJE66/hummingbird), [berylline](https://github.com/jcmkk3/trochilidae#berylline), [pueo](https://github.com/grassfedreeve/pueo/), [i'iwi](https://github.com/grassfedreeve/iiwi), and [fitis](https://github.com/weteor/Fitis) keyboards for inspiration, and @car_kaboomer on discord for all the help.
 
 ## todo
-get pictures
+get pictures from a respectable camera
 
 maybe make a case
